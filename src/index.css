@@ -1,1 +1,21 @@
-@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&family=Manrope:wght@400..700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --main-font: "Manrope";
+  --secondary-font: "Inter";
+
+  --midnight: #101828;
+  --manatee: #8d929a;
+  --royal: #3470ff;
+  --persian: #0b44cd;
+  --hawkes: #dadde1;
+  --solitude: #f2f4f7;
+  --smoke: #f7f7f7;
+
+  font-family: var(--main-font);
+  color: var(--midnight);
+}
