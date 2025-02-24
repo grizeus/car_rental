@@ -1,11 +1,14 @@
 import NavBar from "./NavBar";
+import sprite from "../assets/sprite.svg";
 
 const SharedLayout = ({ children }) => {
   return (
     <>
       <header className="bg-solitude w-full border-b border-solitude">
-        <div className="mx-auto flex max-w-[1440px] justify-between px-[120px] py-6 sm:min-w-80">
-          <p>RentalCar</p>
+        <div className="mx-auto flex max-w-[1440px] items-center justify-between px-[120px] py-6 sm:min-w-80">
+          <svg className="w-[104px] h-4">
+            <use href={`${sprite}#icon-logo`}></use>
+          </svg>
           <NavBar />
         </div>
       </header>
