@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 const cssBuilder = ({ isActive }) =>
-  ` ${isActive && "text-persian"} text-[16px] font-medium leading-5`;
+  ` ${isActive && "text-persian"} text-base font-medium leading-5`;
 
 const NavBar = () => {
   return (
