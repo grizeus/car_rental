@@ -9,16 +9,17 @@ const NotFoundPage = lazy(() => import("../pages/NotFoundPage"));
 
 const App = () => {
   return (
-    <SharedLayout>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
+    <Suspense fallback={<div>Loading...</div>}>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+
+        <Route element={<SharedLayout />}>
           <Route path="catalog" element={<CatalogPage />} />
           <Route path="/catalog/:id" element={<DetailsPage />} />
           <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </Suspense>
-    </SharedLayout>
+        </Route>
+      </Routes>
+    </Suspense>
   );
 };
 

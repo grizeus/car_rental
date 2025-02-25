@@ -1,18 +1,18 @@
-import NavBar from "./NavBar";
+import { Outlet } from "react-router-dom";
+import Container from "./Container";
+import Header from "./Header";
+import Section from "./Section";
 
-const SharedLayout = ({ children }) => {
+const SharedLayout = () => {
   return (
     <>
-      <header className="bg-solitude w-full border-b border-solitude">
-        <div className="mx-auto flex max-w-[1440px] justify-between px-[120px] py-6 sm:min-w-80">
-          <p>RentalCar</p>
-          <NavBar />
-        </div>
-      </header>
+      <Header />
       <main>
-        <section className="w-full">
-          <div className="mx-auto max-w-[1440px] px-[120px]">{children}</div>
-        </section>
+        <Section>
+          <Container>
+            <Outlet />
+          </Container>
+        </Section>
       </main>
       <footer></footer>
     </>
