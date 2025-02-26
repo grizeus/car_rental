@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import hero from "../assets/img/hero.jpg";
 import hero2x from "../assets/img/hero@2x.jpg";
 import Container from "../components/Container";
@@ -30,11 +30,11 @@ const HomePage = () => {
           <span className="mt-4 mb-10 block text-2xl font-semibold text-white">
             Reliable and budget-friendly rentals for any journey
           </span>
-          <NavLink
+          <Link
             to={"/catalog"}
             className="bg-royal mb-[60px] rounded-xl px-[88px] py-3 text-base leading-tight font-semibold text-white">
             View Catalog
-          </NavLink>
+          </Link>
         </Container>
       </Section>
     </>
@@ -42,11 +42,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
-// font-family: "Manrope", sans-serif;
-// font-weight: 600;
-// font-size: 16px;
-
-// /* line-height: 20px; */
-// line-height: 1.25;
-// color: #fff;
