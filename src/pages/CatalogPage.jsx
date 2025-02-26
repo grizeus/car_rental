@@ -27,6 +27,8 @@ const CatalogPage = () => {
     "Subaru",
     "Volvo",
   ];
+  const totalPages = 3;
+  const page = 2;
   const prices = [1, 2, 23, 34, 34, 34, 45, 56];
   const info = [
     {
@@ -40,7 +42,11 @@ const CatalogPage = () => {
         "The Buick Enclave is a stylish and spacious SUV known for its comfortable ride and luxurious features.",
       fuelConsumption: "10.5",
       engineSize: "3.6L V6",
-      accessories: ["Leather seats", "Panoramic sunroof", "Premium audio system"],
+      accessories: [
+        "Leather seats",
+        "Panoramic sunroof",
+        "Premium audio system",
+      ],
       functionalities: [
         "Power liftgate",
         "Remote start",
@@ -68,7 +74,11 @@ const CatalogPage = () => {
         "The Buick Enclave is a stylish and spacious SUV known for its comfortable ride and luxurious features.",
       fuelConsumption: "10.5",
       engineSize: "3.6L V6",
-      accessories: ["Leather seats", "Panoramic sunroof", "Premium audio system"],
+      accessories: [
+        "Leather seats",
+        "Panoramic sunroof",
+        "Premium audio system",
+      ],
       functionalities: [
         "Power liftgate",
         "Remote start",
@@ -95,7 +105,11 @@ const CatalogPage = () => {
         "The Buick Enclave is a stylish and spacious SUV known for its comfortable ride and luxurious features.",
       fuelConsumption: "10.5",
       engineSize: "3.6L V6",
-      accessories: ["Leather seats", "Panoramic sunroof", "Premium audio system"],
+      accessories: [
+        "Leather seats",
+        "Panoramic sunroof",
+        "Premium audio system",
+      ],
       functionalities: [
         "Power liftgate",
         "Remote start",
@@ -122,7 +136,11 @@ const CatalogPage = () => {
         "The Buick Enclave is a stylish and spacious SUV known for its comfortable ride and luxurious features.",
       fuelConsumption: "10.5",
       engineSize: "3.6L V6",
-      accessories: ["Leather seats", "Panoramic sunroof", "Premium audio system"],
+      accessories: [
+        "Leather seats",
+        "Panoramic sunroof",
+        "Premium audio system",
+      ],
       functionalities: [
         "Power liftgate",
         "Remote start",
@@ -149,7 +167,11 @@ const CatalogPage = () => {
         "The Buick Enclave is a stylish and spacious SUV known for its comfortable ride and luxurious features.",
       fuelConsumption: "10.5",
       engineSize: "3.6L V6",
-      accessories: ["Leather seats", "Panoramic sunroof", "Premium audio system"],
+      accessories: [
+        "Leather seats",
+        "Panoramic sunroof",
+        "Premium audio system",
+      ],
       functionalities: [
         "Power liftgate",
         "Remote start",
@@ -164,10 +186,10 @@ const CatalogPage = () => {
         "Security deposit required",
       ],
       mileage: 5858,
-    }
+    },
   ];
   return (
-    <>
+    <div className="flex flex-col pb-31">
       <div className="flex items-end justify-center gap-4 pt-[84px]">
         <ul className="flex gap-4">
           <li>
@@ -182,14 +204,21 @@ const CatalogPage = () => {
         </ul>
         <button
           type="submit"
-          className="bg-royal flex h-11 w-[156px] items-center justify-center rounded-xl px-[51px] text-base leading-5 font-semibold text-white">
+          className="bg-royal flex h-11 w-39 items-center justify-center rounded-xl px-[51px] text-base leading-5 font-semibold text-white">
           Search
         </button>
       </div>
-      <div className="mt-14">
+      <div className="mt-14 mb-20">
         <CardList cards={info} />
       </div>
-    </>
+      {page !== totalPages && (
+        <button
+          type="submit"
+          className="border-royal flex h-11 w-39 items-center justify-center self-center rounded-xl border">
+          Load more
+        </button>
+      )}
+    </div>
   );
 };
 
