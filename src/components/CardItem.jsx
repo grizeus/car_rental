@@ -4,7 +4,7 @@ const CardItem = ({ options }) => {
   return (
     <div className="w-[276px]">
       <div className="overflow-hidden rounded-[14px]">
-        <img src={options.img} alt="car" className="object-cover" />
+        <img src={options.img} alt={`${options.brand} ${options.model}` } className="object-cover" />
       </div>
       <div className="mt-4 flex justify-between text-base leading-5">
         <div>
@@ -12,7 +12,7 @@ const CardItem = ({ options }) => {
           <span className="text-royal"> {options.model}</span>
           <span>, {options.year}</span>
         </div>
-        <span className="place-self-end">${options.rentalPrice}</span>
+        <span>${options.rentalPrice}</span>
       </div>
       <div className="text-manatee mt-[10px] flex flex-col gap-1 text-xs mb-7">
         <div className="flex gap-[6px]">
