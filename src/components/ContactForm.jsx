@@ -1,5 +1,6 @@
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import { z } from "zod";
+import { toFormikValidationSchema } from "zod-formik-adapter";
 import { emailRegExp } from "../utils/constants";
 
 const initialData = {
@@ -27,7 +28,7 @@ const validationSchema = z.object({
 });
 const ContactForm = () => {
   const handleSubmit = (values, actions) => {
-    console.log(values);
+    console.log(JSON.stringify(values));
     actions.resetForm();
   };
     return (
@@ -40,7 +41,7 @@ const ContactForm = () => {
         </div>
         <Formik
           initialValues={initialData}
-          validationSchema={validationSchema}
+          validationSchema={toFormikValidationSchema(validationSchema)}
           onSubmit={handleSubmit}>
           <Form className="flex flex-col gap-6">
             <div className="flex flex-col gap-4">
@@ -58,7 +59,7 @@ const ContactForm = () => {
 
               <Field
                 className="bg-smoke rounded-xl px-5 py-[14px] outline-none"
-                type="email"
+                type="text"
                 name="email"
                 placeholder="Email*"
               />
