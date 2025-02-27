@@ -1,10 +1,25 @@
 import { Link } from "react-router-dom";
+import sprite from "../assets/sprite.svg";
 
-const CardItem = ({ options }) => {
+const CardItem = ({ options, isFavorite }) => {
   return (
     <div className="w-[276px]">
-      <div className="overflow-hidden rounded-[14px]">
-        <img src={options.img} alt={`${options.brand} ${options.model}` } className="object-cover" />
+      {/*NOTE: tune gradient later */}
+      <div className="relative overflow-hidden rounded-[14px] after:absolute after:inset-0 after:bg-linear-to-b after:from-[rgba(18,20,23,0.5)] after:to-[rgba(18,20,23,0.4)]">
+        <img
+          src={options.img}
+          alt={`${options.brand} ${options.model}`}
+          className="object-cover"
+        />
+        {isFavorite ? (
+          <svg className="fill-royal absolute top-4 right-4 z-2 h-4 w-4">
+            <use href={`${sprite}#icon-favorite`}></use>
+          </svg>
+        ) : (
+          <svg className="fill-solitude absolute top-4 right-4 z-2 h-4 w-4">
+            <use href={`${sprite}#icon-outline-favorite`}></use>
+          </svg>
+        )}
       </div>
       <div className="mt-4 flex justify-between text-base leading-5">
         <div>
@@ -14,7 +29,7 @@ const CardItem = ({ options }) => {
         </div>
         <span>${options.rentalPrice}</span>
       </div>
-      <div className="text-manatee mt-[10px] flex flex-col gap-1 text-xs mb-7">
+      <div className="text-manatee mt-[10px] mb-7 flex flex-col gap-1 text-xs">
         <div className="flex gap-[6px]">
           <span className="border-r-hawkes border-r pr-[6px]">
             {options.address.split(",")[1]}
@@ -30,9 +45,7 @@ const CardItem = ({ options }) => {
           <span className="border-r-hawkes border-r pr-[6px]">
             {options.type}
           </span>
-          <span>
-            {options.mileage.toLocaleString().replace(/,/g, " ")} km
-          </span>
+          <span>{options.mileage.toLocaleString().replace(/,/g, " ")} km</span>
         </div>
       </div>
       <Link
@@ -42,6 +55,6 @@ const CardItem = ({ options }) => {
       </Link>
     </div>
   );
-}
+};
 
 export default CardItem;
