@@ -1,5 +1,6 @@
 // import { useParams } from "react-router-dom";
 import sprite from "../assets/sprite.svg";
+import ContactForm from "../components/ContactForm";
 const DetailsPage = () => {
   const details = {
     id: "11a3ab35-07b8-4336-b06b-602cdc309f2c",
@@ -31,17 +32,20 @@ const DetailsPage = () => {
   // const { id } = useParams();
   const descrId = details.img.split("/").pop().split("-").shift();
   return (
-    <div className="mt-21 grid">
-      <div className="w-160 overflow-hidden rounded-[14px]">
-        <img src={details.img} alt="car" className="object-cover" />
+    <div className="flex gap-x-18 pt-21 pb-26">
+      <div className="flex flex-col gap-10">
+        <div className="h-128 w-160 overflow-hidden rounded-[14px]">
+          <img src={details.img} alt="car" className="h-full object-cover" />
+        </div>
+        <ContactForm />
       </div>
-      <div className="flex flex-col">
+
+      <div className="flex w-122 pt-5 flex-col">
         <div className="mb-2 flex items-baseline gap-4">
-          <div className="text-2xl font-semibold">
-            <span>{details.brand} </span>
-            <span>{details.model}, </span>
-            <span>{details.year}</span>
-          </div>
+          <h1 className="text-2xl font-semibold">
+            {`${details.brand}
+              ${details.model}, ${details.year}`}
+          </h1>
           <span className="text-manatee text-base leading-5">
             id: {descrId}
           </span>
@@ -58,7 +62,7 @@ const DetailsPage = () => {
         <span className="text-royal mt-4 text-2xl font-semibold">
           ${details.rentalPrice}
         </span>
-        <span className="mt-8 w-122 text-base font-medium">
+        <span className="mt-8 w-122 text-base leading-5 font-medium">
           {details.description}
         </span>
         <div className="mt-17">
