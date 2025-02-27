@@ -5,7 +5,7 @@ const CardItem = ({ options, isFavorite }) => {
   return (
     <div className="flex h-106 flex-col justify-between">
       <div>
-        <div className="relative w-69 overflow-hidden rounded-[14px] after:absolute after:inset-x-0 after:top-0 after:h-1/2 after:bg-linear-180 after:from-[rgba(18,20,23,0.5)] after:to-transparent">
+        <div className="relative overflow-hidden rounded-[14px] after:absolute after:inset-x-0 after:top-0 after:h-1/2 after:bg-linear-180 after:from-[rgba(18,20,23,0.5)] after:to-transparent">
           <img
             src={options.img}
             alt={`${options.brand} ${options.model}`}
