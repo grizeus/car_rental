@@ -62,7 +62,6 @@ export const fetchCarById = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const { data } = await FetchInstance.get(`/cars/${id}`);
-      console.log(data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
