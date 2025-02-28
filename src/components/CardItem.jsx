@@ -1,7 +1,16 @@
 import { Link } from "react-router-dom";
 import sprite from "../assets/sprite.svg";
+import { useDispatch } from "react-redux";
+import { addFavs, removeFavs } from "../redux/favorites/slice";
 
 const CardItem = ({ options, isFavorite }) => {
+  const dispatch = useDispatch();
+  const handleAddFav = () => {
+    dispatch(addFavs(options.id));
+  }
+  const handleRemoveFav = () => {
+    dispatch(removeFavs(options.id));
+  }
   return (
     <div className="flex h-106 flex-col justify-between">
       <div>
@@ -12,11 +21,11 @@ const CardItem = ({ options, isFavorite }) => {
             className="min-h-67 w-full object-cover"
           />
           {isFavorite ? (
-            <svg className="fill-royal absolute top-4 right-4 z-2 h-4 w-4">
+            <svg className="cursor-pointer fill-royal absolute top-4 right-4 z-2 h-4 w-4" onClick={handleRemoveFav}>
               <use href={`${sprite}#icon-favorite`}></use>
             </svg>
           ) : (
-            <svg className="fill-solitude absolute top-4 right-4 z-2 h-4 w-4">
+            <svg className="cursor-pointer fill-solitude absolute top-4 right-4 z-2 h-4 w-4" onClick={handleAddFav}>
               <use href={`${sprite}#icon-outline-favorite`}></use>
             </svg>
           )}

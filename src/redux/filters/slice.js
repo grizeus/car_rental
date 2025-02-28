@@ -1,10 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const INITIAL_STATE = {
-  brand: null,
-  rentalPrice: null,
-  minMileage: null,
-  maxMileage: null,
+  filters: {
+    brand: null,
+    rentalPrice: null,
+    minMileage: null,
+    maxMileage: null,
+  },
 };
 
 const filterSlice = createSlice({
@@ -12,11 +14,11 @@ const filterSlice = createSlice({
   initialState: INITIAL_STATE,
   reducers: {
     changeFilter: (state, action) => {
-      state = action.payload;
+      state.filters = action.payload;
     },
   },
 });
 
-export const { changeFilter } = filterSlice.actions;
+export const { changeFilter, setPage, setTotal } = filterSlice.actions;
 
-export default filterSlice;
+export default filterSlice.reducer;

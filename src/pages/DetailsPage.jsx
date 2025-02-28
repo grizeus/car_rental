@@ -4,16 +4,22 @@ import ContactForm from "../components/ContactForm";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCarById } from "../redux/cars/operations";
-import { selectCurrent } from "../redux/cars/selectors";
+import { selectCurrent, selectLoading } from "../redux/cars/selectors";
+import Loader from "../components/Loader";
 
 const DetailsPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(fetchCarById(id));
+    if (id) {
+      dispatch(fetchCarById(id));
+    }
   }, [dispatch, id]);
+  const isLoading = useSelector(selectLoading);
   const details = useSelector(selectCurrent);
-  return (
+
+  return !isLoading && details ? (
     <div className="flex gap-x-18 pt-21 pb-26">
       <div className="flex flex-col gap-10">
         <div className="h-128 w-160 overflow-hidden rounded-[14px]">
@@ -23,6 +29,8 @@ const DetailsPage = () => {
       </div>
       <CarDetails details={details} />
     </div>
+  ) : (
+    <Loader />
   );
 };
 
