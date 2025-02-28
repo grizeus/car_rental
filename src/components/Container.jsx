@@ -1,7 +1,5 @@
-const Container = ({ styles = "", children }) => {
-  // for home page purpose
-  const cssBuilder = `${styles} mx-auto max-w-[1440px] px-[120px]`;
-  return <div className={cssBuilder}>{children}</div>;
+const Container = ({ children }) => {
+  return <div className="mx-auto max-w-[1440px]">{children}</div>;
 };
 
 export default Container;

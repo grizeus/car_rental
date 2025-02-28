@@ -20,7 +20,7 @@ const DetailsPage = () => {
   const details = useSelector(selectCurrent);
 
   return !isLoading && details ? (
-    <div className="flex gap-x-18 pt-21 pb-26">
+    <div className="flex gap-x-18 pt-21 pb-26 px-30">
       <div className="flex flex-col gap-10">
         <div className="h-128 w-160 overflow-hidden rounded-[14px]">
           <img src={details.img} alt="car" className="h-full object-cover" />

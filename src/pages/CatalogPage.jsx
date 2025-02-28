@@ -57,7 +57,7 @@ const CatalogPage = () => {
           Search
         </button>
       </div>
-      <div className="mt-14 mb-20">
+      <div className="mt-14 mb-20 px-20">
         <CardList cards={cars} />
       </div>
       {page !== totalPages && totalPages !== 0 && (
