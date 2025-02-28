@@ -1,7 +1,5 @@
-const Section = ({ styles = "", children }) => {
-  // for home page purpose
-  const cssBuilder = `${styles} w-full`;
-  return <section className={cssBuilder}>{children}</section>;
+const Section = ({ children }) => {
+  return <section className="w-full">{children}</section>;
 };
 
 export default Section;

@@ -12,9 +12,8 @@ const App = () => {
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-
         <Route element={<SharedLayout />}>
+          <Route path="/" element={<HomePage />} />
           <Route path="catalog" element={<CatalogPage />} />
           <Route path="/catalog/:id" element={<DetailsPage />} />
           <Route path="*" element={<NotFoundPage />} />
