@@ -18,6 +18,9 @@ export default {
         solitude: "var(--solitude)",
         smoke: "var(--smoke)",
       },
+      fontFamily: {
+        inter: "var(--secondary-font), sans-serif",
+      },
     },
   },
   plugins: [],

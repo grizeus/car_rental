@@ -2,6 +2,9 @@ import { Form, Formik, Field, ErrorMessage } from "formik";
 import { z } from "zod";
 import { toFormikValidationSchema } from "zod-formik-adapter";
 import { emailRegExp } from "../utils/constants";
+import CustomPicker from "./CustomPicker/CustomPicker";
+import { useState } from "react";
+import Modal from "./Modal";
 
 const initialData = {
   name: "",
@@ -27,12 +30,15 @@ const validationSchema = z.object({
     .optional(),
 });
 const ContactForm = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const handleSubmit = (values, actions) => {
     console.log(JSON.stringify(values));
+    setIsModalOpen(true);
     actions.resetForm();
   };
   return (
     <div className="border-hawkes rounded-[10px] border p-8">
+      {isModalOpen && <Modal onClose={() => setIsModalOpen(false)} isOpen={isModalOpen} />}
       <div className="mb-6 flex flex-col gap-2">
         <h2 className="text-xl leading-6 font-semibold">Book your car now</h2>
         <span className="text-manatee text-base leading-5">
@@ -68,12 +74,7 @@ const ContactForm = () => {
               name="email"
               component="span"
             />
-            <Field
-              className="bg-smoke rounded-xl px-5 py-[14px] outline-none"
-              type="date"
-              name="date"
-              placeholder="Booking date"
-            />
+            <Field component={CustomPicker} name="date" />
             <ErrorMessage
               className="mt-1 text-sm text-red-500"
               name="date"
