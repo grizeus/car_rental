@@ -17,7 +17,7 @@
   --solitude: #f2f4f7;
   --smoke: #f7f7f7;
 
-  font-family: var(--main-font);
+  font-family: var(--main-font), sans-serif;
   color: var(--midnight);
 }
 

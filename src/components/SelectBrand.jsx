@@ -5,7 +5,7 @@ import { changeFilter } from "../redux/filters/slice";
 
 const SelectBrand = ({ options }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [brand, setSelected] = useState(null);
+  const [brand, setBrand] = useState(null);
   const dropDownRef = useRef(null);
   const dispatch = useDispatch();
 
@@ -28,7 +28,7 @@ const SelectBrand = ({ options }) => {
   const toggleDropdown = () => setIsOpen(!isOpen);
 
   const handleOptionClick = option => {
-    setSelected(option);
+    setBrand(option);
     setIsOpen(false);
   };
   return (

@@ -32,7 +32,7 @@ const HomePage = () => {
           </span>
           <Link
             to={"/catalog"}
-            className="bg-royal mb-[60px] rounded-xl px-[88px] py-3 text-base leading-tight font-semibold text-white">
+            className="bg-royal hover:bg-persian mb-[60px] rounded-xl px-[88px] py-3 text-base leading-tight font-semibold text-white transition-colors duration-300 ease-in-out">
             View Catalog
           </Link>
         </Container>

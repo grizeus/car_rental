@@ -7,10 +7,10 @@ const CardItem = ({ options, isFavorite }) => {
   const dispatch = useDispatch();
   const handleAddFav = () => {
     dispatch(addFavs(options.id));
-  }
+  };
   const handleRemoveFav = () => {
     dispatch(removeFavs(options.id));
-  }
+  };
   return (
     <div className="flex h-106 flex-col justify-between">
       <div>
@@ -21,11 +21,15 @@ const CardItem = ({ options, isFavorite }) => {
             className="min-h-67 w-full object-cover"
           />
           {isFavorite ? (
-            <svg className="cursor-pointer fill-royal absolute top-4 right-4 z-2 h-4 w-4" onClick={handleRemoveFav}>
+            <svg
+              className="fill-royal absolute top-4 right-4 z-2 h-4 w-4 cursor-pointer"
+              onClick={handleRemoveFav}>
               <use href={`${sprite}#icon-favorite`}></use>
             </svg>
           ) : (
-            <svg className="cursor-pointer fill-solitude absolute top-4 right-4 z-2 h-4 w-4" onClick={handleAddFav}>
+            <svg
+              className="fill-solitude absolute top-4 right-4 z-2 h-4 w-4 cursor-pointer"
+              onClick={handleAddFav}>
               <use href={`${sprite}#icon-outline-favorite`}></use>
             </svg>
           )}
@@ -62,7 +66,7 @@ const CardItem = ({ options, isFavorite }) => {
       </div>
       <Link
         to={`/catalog/${options.id}`}
-        className="bg-royal flex h-11 w-full items-center justify-center rounded-xl px-[97px] text-base leading-5 font-semibold text-white">
+        className="bg-royal hover:bg-persian flex h-11 w-full items-center justify-center rounded-xl px-[97px] text-base leading-5 font-semibold text-white transition-colors duration-300 ease-in-out">
         Read more
       </Link>
     </div>
