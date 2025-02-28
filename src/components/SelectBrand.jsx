@@ -1,10 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import sprite from "../assets/sprite.svg";
+import { useDispatch } from "react-redux";
+import { changeFilter } from "../redux/filters/slice";
 
 const SelectBrand = ({ options }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState(null);
+  const [brand, setBrand] = useState(null);
   const dropDownRef = useRef(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const handleClickOutside = e => {
@@ -18,10 +21,14 @@ const SelectBrand = ({ options }) => {
     };
   }, []);
 
+  useEffect(() => {
+    dispatch(changeFilter({ brand }));
+  }, [brand, dispatch]);
+
   const toggleDropdown = () => setIsOpen(!isOpen);
 
   const handleOptionClick = option => {
-    setSelected(option);
+    setBrand(option);
     setIsOpen(false);
   };
   return (
@@ -32,7 +39,7 @@ const SelectBrand = ({ options }) => {
           className="bg-smoke flex items-center justify-between gap-8 rounded-xl py-3 pr-[14px] pl-4"
           onClick={toggleDropdown}>
           <div className="w-[124px] text-base leading-5 font-medium">
-            {selected || "Choose a brand"}
+            {brand || "Choose a brand"}
           </div>
           <svg
             className={`h-4 w-4 transition-transform duration-300 ease-in-out ${isOpen ? "rotate-180" : ""} stroke-midnight`}>
@@ -46,7 +53,7 @@ const SelectBrand = ({ options }) => {
                 <div
                   key={i}
                   onClick={() => handleOptionClick(option)}
-                  className={`text-base leading-5 ${selected === option ? "text-midnight" : "text-manatee"}`}>
+                  className={`text-base leading-5 ${brand === option ? "text-midnight" : "text-manatee"}`}>
                   {option}
                 </div>
               ))}
