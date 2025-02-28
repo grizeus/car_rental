@@ -1,10 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import sprite from "../assets/sprite.svg";
+import { useDispatch } from "react-redux";
+import { changeFilter } from "../redux/filters/slice";
 
 const SelectPrice = ({ options }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState(null);
+  const [rentalPrice, setRentalPrice] = useState(null);
   const dropDownRef = useRef(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const handleClickOutside = e => {
@@ -21,9 +24,13 @@ const SelectPrice = ({ options }) => {
   const toggleDropdown = () => setIsOpen(!isOpen);
 
   const handleOptionClick = option => {
-    setSelected(option);
+    setRentalPrice(option);
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    dispatch(changeFilter({ rentalPrice }));
+  }, [rentalPrice, dispatch]);
   return (
     <div className="flex flex-col gap-2">
       <span className="text-manatee text-xs">Price/ 1 hour</span>
@@ -32,7 +39,7 @@ const SelectPrice = ({ options }) => {
           className="bg-smoke flex items-center justify-between gap-8 rounded-xl py-3 pr-[14px] pl-4"
           onClick={toggleDropdown}>
           <div className="w-[112px] text-base leading-5 font-medium">
-            {selected ? `To $${selected}` : "Choose a price"}
+            {rentalPrice ? `To $${rentalPrice}` : "Choose a price"}
           </div>
           <svg
             className={`h-4 w-4 transition-transform duration-300 ease-in-out ${isOpen ? "rotate-180" : ""} stroke-midnight`}>
@@ -46,7 +53,7 @@ const SelectPrice = ({ options }) => {
                 <div
                   key={i}
                   onClick={() => handleOptionClick(option)}
-                  className={`text-base leading-5 ${selected === option ? "text-midnight" : "text-manatee"}`}>
+                  className={`text-base leading-5 ${rentalPrice === option ? "text-midnight" : "text-manatee"}`}>
                   {option}
                 </div>
               ))}

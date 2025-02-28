@@ -31,7 +31,7 @@ const CatalogPage = () => {
   };
   useEffect(() => {
     dispatch(fetchMore({ ...filters, page: page }));
-  }, [dispatch, page, filters]);
+  }, [dispatch, page]);
   return (
     <div className="flex flex-col pb-31">
       <div className="flex items-end justify-center gap-4 pt-[84px]">

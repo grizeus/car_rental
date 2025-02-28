@@ -1,8 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { changeFilter } from "../redux/filters/slice";
+
+const formatMiles = value => {
+  const formatValue = value.replace(/,/g, "");
+  if (formatValue) {
+    const numericValue = parseInt(formatValue);
+    if (!isNaN(numericValue)) {
+      return numericValue;
+    }
+  }
+  return null;
+};
 
 const SelectMileage = () => {
-  const [fromVal, setFromVal] = useState("");
-  const [toVal, setToVal] = useState("");
+  const [minMileage, setminMileage] = useState("");
+  const [maxMileage, setmaxMileage] = useState("");
+  const dispatch = useDispatch();
   const formattedInput = setter => e => {
     let value = e.target.value.replace(/,/g, "");
     if (value) {
@@ -16,6 +30,15 @@ const SelectMileage = () => {
       setter("");
     }
   };
+
+  useEffect(() => {
+    dispatch(
+      changeFilter({
+        minMileage: formatMiles(minMileage),
+        maxMileage: formatMiles(maxMileage),
+      })
+    );
+  }, [minMileage, maxMileage, dispatch]);
   return (
     <div className="flex w-80 flex-col gap-2">
       <label htmlFor="mileage-from" className="text-manatee text-xs">
@@ -26,16 +49,16 @@ const SelectMileage = () => {
           <span>From</span>
           <input
             id="mileage-from"
-            value={fromVal}
-            onChange={formattedInput(setFromVal)}
+            value={minMileage}
+            onChange={formattedInput(setminMileage)}
             className="appearance-none py-3 outline-none"
           />
         </div>
         <div className="flex items-center gap-1 pl-6">
           <span>To</span>
           <input
-            value={toVal}
-            onChange={formattedInput(setToVal)}
+            value={maxMileage}
+            onChange={formattedInput(setmaxMileage)}
             id="mileage-to"
             className="outline-none"
           />

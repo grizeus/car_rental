@@ -14,11 +14,11 @@ const filterSlice = createSlice({
   initialState: INITIAL_STATE,
   reducers: {
     changeFilter: (state, action) => {
-      state.filters = action.payload;
+      state.filters = { ...state.filters, ...action.payload };
     },
   },
 });
 
-export const { changeFilter, setPage, setTotal } = filterSlice.actions;
+export const { changeFilter } = filterSlice.actions;
 
 export default filterSlice.reducer;
