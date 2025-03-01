@@ -1,5 +1,6 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
+
 import "react-datepicker/dist/react-datepicker.css";
 import "./CustomPicker.css";
 
@@ -9,9 +10,7 @@ const CustomPicker = () => {
     <div className="bg-smoke rounded-xl px-5 py-[14px] outline-none">
       <DatePicker
         selected={startDate}
-        className="h-5 font-['Inter'] outline-none"
-        calendarClassName="font-['Inter']"
-        month
+        className="h-5 outline-none"
         onChange={date => setStartDate(date)}
         placeholderText="Booking date"
       />

@@ -1,9 +1,10 @@
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+
 import SelectBrand from "../components/SelectBrand";
 import SelectMileage from "../components/SelectMileage";
 import SelectPrice from "../components/SelectPrice";
 import CardList from "../components/CardList";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import {
   fetchBrands,
   fetchCars,
@@ -38,7 +39,7 @@ const CatalogPage = () => {
   };
   return (
     <div className="flex flex-col pb-31">
-      <div className="flex items-end justify-center gap-4 pt-[84px]">
+      <div className="flex items-end justify-center gap-4 pt-21">
         <ul className="flex gap-4">
           <li>
             <SelectBrand options={brands} />
@@ -53,12 +54,18 @@ const CatalogPage = () => {
         <button
           type="submit"
           onClick={handleSearch}
-          className="bg-royal hover:bg-persian flex h-11 w-39 items-center justify-center rounded-xl px-[51px] text-base leading-5 font-semibold text-white transition-colors duration-300 ease-in-out">
+          className="bg-royal hover:bg-persian flex h-11 w-39 items-center justify-center rounded-xl px-13 text-base leading-5 font-semibold text-white transition-colors duration-300 ease-in-out">
           Search
         </button>
       </div>
       <div className="mt-14 mb-20 px-20">
-        <CardList cards={cars} />
+        {Array.isArray(cars) && cars.length > 0 ? (
+          <CardList cards={cars} />
+        ) : (
+          <h3 className="text-center text-3xl">
+            No items available yet. Please, try to search something else
+          </h3>
+        )}
       </div>
       {page !== totalPages && totalPages !== 0 && (
         <button

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const HomePage = () => {
   return (
     <div className="flex flex-col items-center bg-[url(src/assets/img/hero.jpg)] bg-cover bg-local bg-center bg-no-repeat">
-      <h1 className="max-w-[783px] pt-[436px] text-center text-6xl leading-[1.2] font-bold text-white">
+      <h1 className="max-w-[783px] pt-109 text-center text-6xl leading-[1.2] font-bold text-white">
         Find your perfect rental car
       </h1>
       <span className="mt-4 mb-10 block text-2xl font-semibold text-white">
