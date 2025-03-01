@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
-    <div className="flex flex-col items-center bg-[url(src/assets/img/hero@2x.jpg)] bg-cover bg-local bg-center bg-no-repeat p-0">
+    <div className="flex flex-col items-center bg-[url(src/assets/img/hero@2x.jpg)] bg-cover bg-local bg-center bg-no-repeat">
       <h1 className="max-w-[783px] pt-[436px] text-center text-6xl leading-[1.2] font-bold text-white">
         Find your perfect rental car
       </h1>
