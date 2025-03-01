@@ -32,7 +32,6 @@ const validationSchema = z.object({
 const ContactForm = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleSubmit = (values, actions) => {
-    console.log(JSON.stringify(values));
     setIsModalOpen(true);
     actions.resetForm();
   };
@@ -94,7 +93,7 @@ const ContactForm = () => {
             />
           </div>
           <button
-            className="bg-royal hover:bg-persian flex h-11 w-39 items-center justify-center self-center rounded-xl px-[51px] text-base leading-5 font-semibold text-white transition-colors duration-300 ease-in-out"
+            className="bg-royal hover:bg-persian flex h-11 w-39 items-center justify-center self-center rounded-xl px-13 text-base leading-5 font-semibold text-white transition-colors duration-300 ease-in-out"
             type="submit">
             Send
           </button>

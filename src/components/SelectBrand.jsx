@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import sprite from "../assets/sprite.svg";
 import { useDispatch } from "react-redux";
+
+import sprite from "../assets/sprite.svg";
 import { changeFilter } from "../redux/filters/slice";
 
 const SelectBrand = ({ options }) => {
@@ -38,7 +39,7 @@ const SelectBrand = ({ options }) => {
         <div
           className="bg-smoke flex items-center justify-between gap-8 rounded-xl py-3 pr-[14px] pl-4"
           onClick={toggleDropdown}>
-          <div className="w-[124px] text-base leading-5 font-medium">
+          <div className="w-31 text-base leading-5 font-medium">
             {brand || "Choose a brand"}
           </div>
           <svg
@@ -47,7 +48,7 @@ const SelectBrand = ({ options }) => {
           </svg>
         </div>
         {isOpen && (
-          <div className="border-smoke scrollbar scrollbar-thumb-hawkes scrollbar-thumb-rounded-xl scrollbar-w-2 absolute top-full left-0 z-10 mt-1 flex h-[272px] w-full flex-col gap-2 overflow-y-scroll rounded-lg border-1 bg-white py-[14px] pl-[18px] shadow-[0_4px_36px_0_rgba(0,0,0,0.02)]">
+          <div className="border-smoke scrollbar scrollbar-thumb-hawkes scrollbar-thumb-rounded-xl scrollbar-w-2 absolute top-full left-0 z-10 mt-1 flex h-68 w-full flex-col gap-2 overflow-y-scroll rounded-lg border-1 bg-white py-[14px] pl-[18px] shadow-[0_4px_36px_0_rgba(0,0,0,0.02)]">
             {Array.isArray(options) &&
               options.map((option, i) => (
                 <div

@@ -1,4 +1,4 @@
 .react-datepicker__month-container {
-  font-family: var(--secondary-font);
+  font-family: var(--secondary-font), sans-serif;
   color: var(--midnight);
 }
