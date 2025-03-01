@@ -51,7 +51,7 @@ const SelectMileage = () => {
             id="mileage-from"
             value={minMileage}
             onChange={formattedInput(setminMileage)}
-            className="appearance-none py-3 outline-none"
+            className="py-3 transition-colors duration-[300s] outline-none autofill:!bg-transparent"
           />
         </div>
         <div className="flex items-center gap-1 pl-6">
@@ -60,7 +60,7 @@ const SelectMileage = () => {
             value={maxMileage}
             onChange={formattedInput(setmaxMileage)}
             id="mileage-to"
-            className="outline-none"
+            className="py-3 transition-colors duration-[300s] outline-none autofill:!bg-transparent"
           />
         </div>
       </div>
