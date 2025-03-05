@@ -30,7 +30,7 @@ const CarDetails = ({ details }) => {
           <use href={`${sprite}#icon-location`}></use>
         </svg>
         <span>{location}</span>
-        <span className="ml-4">{formattedMileage} km</span>
+        <span className="ml-4">Mileage: {formattedMileage} km</span>
       </div>
 
       {/* Price */}
