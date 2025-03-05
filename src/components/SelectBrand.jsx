@@ -33,7 +33,7 @@ const SelectBrand = ({ options }) => {
     setIsOpen(false);
   };
   return (
-    <div className="flex flex-col gap-2">
+    <>
       <span className="text-manatee text-xs">Car brand</span>
       <div ref={dropDownRef} className="relative cursor-pointer">
         <div
@@ -61,7 +61,7 @@ const SelectBrand = ({ options }) => {
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 };
 

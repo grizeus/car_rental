@@ -12,7 +12,7 @@ const CardItem = ({ options, isFavorite }) => {
     dispatch(removeFavs(options.id));
   };
   return (
-    <div className="flex h-106 flex-col justify-between">
+    <>
       <div>
         <div className="relative overflow-hidden rounded-[14px] after:absolute after:inset-x-0 after:top-0 after:h-1/2 after:bg-linear-180 after:from-[rgba(18,20,23,0.5)] after:to-transparent">
           <img
@@ -69,7 +69,7 @@ const CardItem = ({ options, isFavorite }) => {
         className="bg-royal hover:bg-persian flex h-11 w-full items-center justify-center rounded-xl px-[97px] text-base leading-5 font-semibold text-white transition-colors duration-300 ease-in-out">
         Read more
       </Link>
-    </div>
+    </>
   );
 };
 
