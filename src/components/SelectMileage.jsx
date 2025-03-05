@@ -40,7 +40,7 @@ const SelectMileage = () => {
     );
   }, [minMileage, maxMileage, dispatch]);
   return (
-    <div className="flex w-80 flex-col gap-2">
+    <>
       <label htmlFor="mileage-from" className="text-manatee text-xs">
         Car mileage / km
       </label>
@@ -64,7 +64,7 @@ const SelectMileage = () => {
           />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

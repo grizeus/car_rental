@@ -41,13 +41,13 @@ const CatalogPage = () => {
     <div className="flex flex-col pb-31">
       <div className="flex items-end justify-center gap-4 pt-21">
         <ul className="flex gap-4">
-          <li>
+          <li className="flex flex-col gap-2">
             <SelectBrand options={brands} />
           </li>
-          <li>
+          <li className="flex flex-col gap-2">
             <SelectPrice options={prices} />
           </li>
-          <li>
+          <li className="flex w-80 flex-col gap-2">
             <SelectMileage />
           </li>
         </ul>

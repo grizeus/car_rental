@@ -32,7 +32,7 @@ const SelectPrice = ({ options }) => {
     dispatch(changeFilter({ rentalPrice }));
   }, [rentalPrice, dispatch]);
   return (
-    <div className="flex flex-col gap-2">
+    <>
       <span className="text-manatee text-xs">Price/ 1 hour</span>
       <div ref={dropDownRef} className="relative cursor-pointer">
         <div
@@ -60,7 +60,7 @@ const SelectPrice = ({ options }) => {
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 };
 
