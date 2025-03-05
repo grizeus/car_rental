@@ -1,4 +1,5 @@
-# Car Rental - Web Application
+# Car Rental - Web Application [Live demo](https://car-rental-coral.vercel.app/) 
+<img src="./public/img/preview.jpg" alt="Car Rental Web Application Preview" width="100%">
 
 ## Project Description
 
